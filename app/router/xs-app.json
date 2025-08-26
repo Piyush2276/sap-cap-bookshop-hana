@@ -1,10 +1,26 @@
 {
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
   "routes": [
     {
-      "source": "^/(.*)$",
-      "target": "$1",
+      "source": "^/employeeprofile/(.*)$",
+      "target": "/$1",
+      "service": "employeeprofile-html5-repo",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/srv/(.*)$",
+      "target": "/$1",
       "destination": "srv-api",
-      "csrfProtection": true
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "/index.html",
+      "authenticationType": "xsuaa"
     }
-  ]
+  ],
+  "csrfProtection": {
+    "enable": true
+  }
 }

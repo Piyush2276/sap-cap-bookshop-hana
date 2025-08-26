@@ -6,27 +6,34 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@sap/cds": "^9",
-    "express": "^4",
+    "@cap-js/cds-types": "^0.13.0",
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9.2.1",
+    "@sap/cds-common-content": "^3.0.1",
+    "@sap/cds-dk": ">=8",
+    "@sap/hana-client": "^2.25.29",
+    "@sap/hdi-deploy": "^5.5.0",
     "@sap/xssec": "^4",
-    "@cap-js/hana": "^2"
+    "cors": "^2.8.5",
+    "express": "^4"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
-    "@cap-js/cds-types": "^0.13.0",
-    "@cap-js/sqlite": "^2",
-    "@sap/cds-dk": ">=8"
+    "@cap-js/sqlite": "^2"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "npx cds serve",
+    "watch-project1": "npx cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
-      "[production]": {
-        "auth": "xsuaa"
-      }
+      "auth": "xsuaa",
+      "db": "hana"
     }
-  }
+  },
+  "sapux": [
+    "app/project1"
+  ]
 }
